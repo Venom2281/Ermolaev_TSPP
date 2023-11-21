@@ -25,14 +25,16 @@ class MedicialChat : AppCompatActivity() {
         val eMessage = binding.eMessage
 
         eName.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_WORDS
-        eName.filters = arrayOf(InputFilter { source, _, _, _, _, _ ->
+        eName.filters = arrayOf(
+            InputFilter { source, _, _, _, _, _ ->
             if (source.toString().isEmpty() || source.toString().matches("[a-zA-Z]+".toRegex())) {
                 source
             } else {
                 Toast.makeText(applicationContext, "Ім'я може складатися лише з літер.", Toast.LENGTH_SHORT).show()
                 ""
             }
-        })
+        }
+        )
 
 
         val maxLengthMessage = 1000
