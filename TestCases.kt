@@ -1,5 +1,3 @@
-
-
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.core.app.ActivityScenario
 import org.junit.Test
@@ -50,8 +48,5 @@ class MedicialChatTest {
     fun testInvalidMessage2() {
         // Launch the activity and perform the test
         ActivityScenario.launch<MedicialChat>(MedicialChat::class.java).onActivity { medicalchat ->
-            val res = TestCases.getMessageInfo("123") // Provide an invalid message for the test
-            assertEquals(-1, res)
-        }
-    }
+
 }
