@@ -70,7 +70,7 @@ class MedicialChat : AppCompatActivity() {
             return -1 // Текст не відповідає умові або умовам
         }
     }
-    fun isValidMessage(userMessage: String): Boolean {
+    fun (userMessage: String): Boolean {
         return userMessage.length in 1..1000 && userMessage.all { it.isLetter() || it.isWhitespace() }
     }
 
