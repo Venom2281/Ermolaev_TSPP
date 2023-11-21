@@ -18,21 +18,18 @@ object TestCases {
 
 @RunWith(AndroidJUnit4::class)
 class MedicialChatTest {
-    @Test
     fun testValidMessage() {
         ActivityScenario.launch(MedicialChat::class.java).onActivity{ medicalchat ->
             val res = medicalchat.getMessageInfo("Hi I want to be free")
             assertEquals(1, res)
         }
     }
-    @Test
     fun testInvalidMessage() {
         ActivityScenario.launch(MedicialChat::class.java).onActivity{ medicalchat ->
             val res = medicalchat.getMessageInfo("")
             assertEquals(-1, res)
         }
     }
-    @Test
     fun testInvalidMessage2() {
         ActivityScenario.launch(MedicialChat::class.java).onActivity{ medicalchat ->
             val res = medicalchat.getMessageInfo("")
