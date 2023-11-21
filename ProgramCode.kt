@@ -27,15 +27,14 @@ class MedicialChat : AppCompatActivity() {
         eName.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_CAP_WORDS
         eName.filters = arrayOf(
             InputFilter { source, _, _, _, _, _ ->
-            if (source.toString().isEmpty() || source.toString().matches("[a-zA-Z]+".toRegex())) {
-                source
-            } else {
-                Toast.makeText(applicationContext, "Ім'я може складатися лише з літер.", Toast.LENGTH_SHORT).show()
-                ""
+                if (source.toString().isEmpty() || source.toString().matches("[a-zA-Z]+".toRegex())) {
+                    source
+                } else {
+                    Toast.makeText(applicationContext, "Ім'я може складатися лише з літер.", Toast.LENGTH_SHORT).show()
+                    ""
+                }
             }
-        }
         )
-
 
         val maxLengthMessage = 1000
         val inputFilter = InputFilter.LengthFilter(maxLengthMessage)
@@ -63,19 +62,18 @@ class MedicialChat : AppCompatActivity() {
             }
         }
     }
-    fun getMessageInfo(userMessage: String): Int {
-        if (isValidMessage(userMessage)) {
-            return 1 // Користувач коректно ввів дані
-        }
 
-        if (!isValidMessage(userMessage)) {
-            return -1 // Текст не відповідає умові або умовам
+    fun getMessageInfo(userMessage: String): Int {
+        return if (isValidMessage(userMessage)) {
+            1 // Користувач коректно ввів дані
+        } else {
+            -1 // Текст не відповідає умові або умовам
         }
     }
+
     fun isValidMessage(userMessage: String): Boolean {
         return userMessage.length in 1..1000 && userMessage.all { it.isLetter() || it.isWhitespace() }
     }
-
 
     private fun writeToDatabase(userName: String, userMessage: String) {
         val key = databaseReference.child("messages").push().key
