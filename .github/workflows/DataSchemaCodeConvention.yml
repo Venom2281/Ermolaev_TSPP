@@ -1,7 +1,7 @@
 name: JsonSchemaLinter
 on:
  push:
-  branches: Lab11
+  branches: LW1
 jobs:
  json_linter_test:
   runs-on: ubuntu-latest
