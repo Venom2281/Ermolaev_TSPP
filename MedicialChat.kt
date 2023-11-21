@@ -67,7 +67,8 @@ class MedicialChat : AppCompatActivity() {
         }
 
         if (!isValidMessage(userMessage)) {
-            return -1 // Текст не відповідає умові або умовам
+            return -1 // Текст не відповідає 
+            умові або умовам
         }
     }
     fun (userMessage: String): Boolean {
